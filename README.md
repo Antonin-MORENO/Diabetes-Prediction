@@ -215,9 +215,9 @@ We are going to standarize the data. To do so we use the [ *StandardScaler*](htt
 
  <br>
 
-$$
+```math
 \boxed{X_{scaled} = \frac{X - \mu}{\sigma}}
-$$
+```
 Where:
 - $X_{scaled}$ is the standardized value of the feature
 - $X$ is the value of the feature
@@ -242,9 +242,9 @@ X_test_scaled = scaler.transform(X_test)
 To predict the presence of diabete we are going to train, evaluate and compare 3 models : **Logistic Regression**, **Gradient Boosting** and **Neural Network**. To evaluate and compare the models we are going to use various metrics from [*sklearn.metrics*](https://scikit-learn.org/stable/modules/model_evaluation.html). Since we are considering a classification problem, we use classification scoring for evalutation and comparaison.
 
 - [**F1 score**](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html) : As seen in Data processing section, we have an unbalanced output. Indeed we have 91.5% of non-diabetic cases and 8.5% of diabitic cases. That's why we use F1 score which is particularly useful in unbalanced class situations. F1 Score is computed as followed: 
-    $$
+    ```math
     \boxed{F1 = \frac{2\times TP}{2\times TP + FP + FN}}
-    $$
+    ```
     With:
     <br>
     
@@ -255,14 +255,14 @@ To predict the presence of diabete we are going to train, evaluate and compare 3
 <br>
 
 - [**Precision**](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html) : We are trying to predict if a person has the diabete or not, so we want to avoid falsely diagnosing people as diabetic. Since Precision tells us the proportion of true diabetic cases among the predicted positive cases, it's a good scoring tool for seeing the proportion of false diagnoses of diabetes predicted. Precision is computed as followed:
-    $$
+    ```math
     \boxed{Precision = \frac{TP}{TP + FP}}
-    $$
+    ```
 
 - [ **Recall**](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html) : We also and mainly want to avoid falsely diagnosing people as a non-diabetic. Since Recall tells us the proportion of true diabetic cases that are correctly identified, it's a good scoring tool for seeing the impact of false diagnoses of non-diabetic. Recall is computed as followed:
-    $$
+    ```math
     \boxed{Recall = \frac{TP}{TP + FN}}
-    $$
+    ```
 
 - [ **Confusion Matrix**](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.confusion_matrix.html): It shows us the absolute numbers of true positives, false positives, true negatives, and false negatives. It gives a detailed view of the errors the model makes.
 
