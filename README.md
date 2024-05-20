@@ -243,7 +243,7 @@ X_test_scaled = scaler.transform(X_test)
 To predict the presence of diabete we are going to train, evaluate and compare 3 models : **Logistic Regression**, **Gradient Boosting** and **Neural Network**. To evaluate and compare the models we are going to use various metrics from [*sklearn.metrics*](https://scikit-learn.org/stable/modules/model_evaluation.html). Since we are considering a classification problem, we use classification scoring for evalutation and comparaison.
 
 - [**F1 score**](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html) : As seen in Data processing section, we have an unbalanced output. Indeed we have 91.5% of non-diabetic cases and 8.5% of diabitic cases. That's why we use F1 score which is particularly useful in unbalanced class situations. F1 Score is computed as followed: 
-    $$
+    ```math
     \boxed{F1 = \frac{2\times TP}{2\times TP + FP + FN}}
     ```
     With:
@@ -344,7 +344,7 @@ plt.show()
 
 
     
-![png](output_27_1.png)
+![png](figure/output_27_1.png)
     
 
 
@@ -405,18 +405,18 @@ disp_conf_gb = ConfusionMatrixDisplay(confusion_matrix = cm_gb, display_labels =
 
 
 disp_conf_gb.plot()
-plt.title("Confusion Matrix Random Forest Classifier")
+plt.title("Confusion Matrix Gradient Boosting")
 plt.show()
 ```
 
-    F1 Score :  0.808848945731075
-    Precision Score :  0.980720871751886
-    Recall Score :  0.6882352941176471
+    F1 Score :  0.8107734806629834
+    Precision Score :  0.9816053511705686
+    Recall Score :  0.6905882352941176
     
 
 
     
-![png](output_32_1.png)
+![png](figure/output_32_1.png)
     
 
 
@@ -471,21 +471,30 @@ disp_conf_mlp = ConfusionMatrixDisplay(confusion_matrix = cm_mlp, display_labels
 
 
 disp_conf_mlp.plot()
-plt.title("Confusion Matrix Random Forest Classifier")
+plt.title("Confusion Matrix Neural Network")
 plt.show()
 ```
 
-    F1 Score :  0.8073204419889503
-    Precision Score :  0.9774247491638796
-    Recall Score :  0.6876470588235294
+    F1 Score :  0.8074534161490683
+    Precision Score :  0.9766277128547579
+    Recall Score :  0.6882352941176471
     
 
 
     
-![png](output_37_1.png)
+![png](figure/output_37_1.png)
     
 
 
-# Comparison
+# Conclusion
 
+
+
+Based on our analysis, **Gradient Boosting** is the best model because it has the best balance of precision and recall, and a high F1 Score. For us, the recall score is the most important because we want to minimize the chances of predicting that someone does not have diabetes when they actually do. The Neural Network model is also good, with similar performance. Logistic Regression is easier to use but doesn't work as well for recall.
+
+So, for predicting diabetes in this project, we recommend using the **Gradient Boosting** model. It performs the best at identifying positive cases while keeping high precision. This model will likely give the most reliable results in real-world use.
+
+By focusing on feature engineering, we could increase the precision and reliability of our model. For instance, we could use machine learning models to fill in the *"No info"* category in the *Smoking History* feature of our dataset, providing more accurate data for this important feature. Additionally, we could create age groups, such as 18-25, 26-35, etc., which might be more relevant than using age as a continuous variable in our case. These enhancements in feature engineering can help improve the performance of our model by providing it with more structured and meaningful data.
+
+Moreover, having more observations of people with diabetes would be very useful. Currently, the dataset contains 91.5% of individuals without diabetes and only 8.5% with diabetes. Increasing the number of observations for diabetic individuals would help balance the dataset and improve the model's ability to accurately predict diabetes.
 
