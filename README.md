@@ -9,7 +9,8 @@ This project aims to develop a machine learning model to predict diabetes in an 
 # About dataset 
 
 In our dataset we have 8 features which are medical and demographic data from patiens and 1 output which is their diabetes status. Let's define all the features:
-- **Gender** : It's a categorical feature which refer to the biological sex of the person which can have an impact on their suceptibility to diabetes 
+
+- **Gender** : It's a categorical feature which refer to the biological sex of the person which can have an impact on their suceptibility to diabetes.
 - **Age** : It's a numerical feature which refer to the patient's age. It's an important factor as diabetes is more commonly diagnosed in older alduts.
 - **Hypertension** : It's a categorical feature which refer to medical condtion in which the blood pressure in the arteries is persistently elevated.
 - **Heart disease** : It's a catgorical feature which refer to the presence of an another hmedical condition associated with an increased risk of developing diabetes
@@ -144,7 +145,7 @@ plt.show()
 
 
     
-![png](output_10_0.png)
+![png](figure/output_10_0.png)
     
 
 
@@ -186,7 +187,7 @@ plt.show()
 
 
     
-![png](output_14_0.png)
+![png](figure/output_14_0.png)
     
 
 
@@ -242,7 +243,7 @@ X_test_scaled = scaler.transform(X_test)
 To predict the presence of diabete we are going to train, evaluate and compare 3 models : **Logistic Regression**, **Gradient Boosting** and **Neural Network**. To evaluate and compare the models we are going to use various metrics from [*sklearn.metrics*](https://scikit-learn.org/stable/modules/model_evaluation.html). Since we are considering a classification problem, we use classification scoring for evalutation and comparaison.
 
 - [**F1 score**](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html) : As seen in Data processing section, we have an unbalanced output. Indeed we have 91.5% of non-diabetic cases and 8.5% of diabitic cases. That's why we use F1 score which is particularly useful in unbalanced class situations. F1 Score is computed as followed: 
-    ```math
+    $$
     \boxed{F1 = \frac{2\times TP}{2\times TP + FP + FN}}
     ```
     With:
